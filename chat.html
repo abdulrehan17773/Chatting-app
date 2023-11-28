@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Only Chat</title>
+    <link rel="stylesheet" href="chat.css">
+</head>
+<body>
+    <div class="container">
+        <div class="msgbox">
+        </div>
+
+        <div class="msg">
+            <input type="text" id="inp" placeholder="Type a message..." >
+            <button id="btn" onclick="sendmsg()">Send</button>
+    </div>
+    </div>
+</body>
+<script>
+    
+    function sendmsg() {
+        let input = document.querySelector(`input`)
+        let message = input.value
+        if (message !== ``) {
+            displaymessage(`You:`, message)
+            input.value = ``
+        }
+    }
+    function displaymessage(sender, msg) {
+        let box = document.querySelector(`.msgbox`)
+        let div = document.createElement(`div`)
+        div.classList.add(`hh3`)
+        div.innerHTML = `<strong>${sender}</strong>${msg}`
+        box.appendChild(div)
+        box.scrollTop = box.scrollHeight;
+    }
+
+</script>
+</html>
